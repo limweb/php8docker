@@ -1,0 +1,25 @@
+#  docker-compose -f docker-compose.yml config check validate config
+version: "2.1"
+services:
+  xxxxx:
+    image: "eventpasshub/evp:xxxxx-dev"
+    container_name: xxxxx
+    working_dir: /var/www/html
+    restart: "always"
+    ports:
+      - "8080"
+    labels:
+      com.docker.compose.project: "xxxxx"
+      virtual.host: "xxxxx.eventpassdev.com"
+      virtual.tls-email: eventpass.server01@gmail.com
+      virtual.port: "8080"
+    environment:
+      VIRTUAL_HOST: "xxxxx.eventpassdev.com"
+      VIRTUAL_PORT: "8080"
+      LETSENCRYPT_HOST: "xxxxx.eventpassdev.com"
+      LETSENCRYPT_EMAIL: eventpass.server01@gmail.com
+
+networks:
+  default:
+    external:
+      name: nginx-network
