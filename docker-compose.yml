@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   php8-caddy:
-    image: "limweb/php8:laster"
+    image: "limweb/php8:latest"
     container_name: php8-caddy
     working_dir: /var/www/html
     restart: "always"
