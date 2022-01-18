@@ -1,22 +1,22 @@
 #  docker-compose -f docker-compose.yml config check validate config
 version: "2.1"
 services:
-  xxxxx:
-    image: "eventpasshub/evp:xxxxx-dev"
-    container_name: xxxxx
+  php8-caddy:
+    image: "limweb/php8:laster"
+    container_name: php8-caddy
     working_dir: /var/www/html
     restart: "always"
     ports:
       - "8080"
     labels:
-      com.docker.compose.project: "xxxxx"
-      virtual.host: "xxxxx.eventpassdev.com"
+      com.docker.compose.project: "php8-caddy"
+      virtual.host: "php8-caddy.eventpassdev.com"
       virtual.tls-email: eventpass.server01@gmail.com
       virtual.port: "8080"
     environment:
-      VIRTUAL_HOST: "xxxxx.eventpassdev.com"
+      VIRTUAL_HOST: "php8-caddy-caddyx.eventpassdev.com"
       VIRTUAL_PORT: "8080"
-      LETSENCRYPT_HOST: "xxxxx.eventpassdev.com"
+      LETSENCRYPT_HOST: "php8-caddy.eventpassdev.com"
       LETSENCRYPT_EMAIL: eventpass.server01@gmail.com
 
 networks:
