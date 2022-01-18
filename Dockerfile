@@ -21,7 +21,7 @@ RUN apt update
 RUN apt install caddy
 RUN caddy version
 RUN setcap 'cap_net_bind_service=+ep' /usr/bin/caddy
-COPY deploy/dev58/config /etc/php/8.1/fpm/conf.d
+COPY config /etc/php/8.1/fpm/conf.d
 
 # COPY application  /var/www/html/application
 # COPY assets /var/www/html/assets
@@ -32,8 +32,8 @@ COPY deploy/dev58/config /etc/php/8.1/fpm/conf.d
 COPY src/index.php  /var/www/html/index.php
 
 RUN  mkdir /run/php
-COPY deploy/dev58/Caddyfile /etc/caddy/
-COPY deploy/dev58/php-caddy-entrypoint /usr/local/bin/
+COPY Caddyfile /etc/caddy/
+COPY php-caddy-entrypoint /usr/local/bin/
 RUN chmod +x /usr/local/bin/php-caddy-entrypoint
 
 # RUN  apt install -y  net-tools
